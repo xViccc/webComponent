@@ -45,8 +45,10 @@ export class CardComponent extends LitElement {
   }
 
   .card {
+    position: relative;
     display: flex;
     width: 300px;
+    height: 374px;
     padding: 16px;
     flex-direction: column;
     align-items: flex-end;
@@ -60,7 +62,9 @@ export class CardComponent extends LitElement {
   img {
     height: 74px;
   }
-
+  button{
+    cursor:pointer;
+  }
   .description {
     color: #000;
     font-family: "Encode Sans";
@@ -144,11 +148,68 @@ export class CardComponent extends LitElement {
     border: 1px solid #D4D2D3;
   }
 
+  /* ------------------ */
+  .correo-enviado {
+    font-size:15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between;
+    position:absolute;
+    height:255px;
+    bottom:18px;
+    border:1px solid #FFF;
+    border-radius:5px;
+    width:90%;
+    background: #F2F0F0;
+    box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.08);
+    padding:17px 31px 32px 31px;
+    text-align:center;
+  }
+  .mensaje-revisa{
+    font-weight:700;
+    margin:0 0 10px 0;
+  }
+  .mensaje-correo{
+    margin:0;
+    line-height: 20px;
+  }
+  .abrir-correo{
+    width: 100%;
+    border-radius: 24px;
+    border: 1px solid #4A90E2;
+    padding:14px 0;
+
+    color: #4A90E2;
+
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .img-link{
+    height:14px;
+    margin-left:5px;
+  }
+  .aspa{
+    height:24px;
+    position:absolute;
+    top:4px;
+    right:4px;
+    cursor:pointer;
+  }
+
   @media(min-width: 1040px) {
     .card {
       position: relative;
       align-items: baseline;
       width: 640px;
+      height:249px;
+    }
+    .img{
+      height:86px;
+    }
+    .img img{
+      height:86px;
     }
     .down{
       width: 100%;
@@ -183,11 +244,16 @@ export class CardComponent extends LitElement {
   @property()
   email: string = '';
 
+  @property()
+  correoEnviado: boolean = false;
+  
+  @property()
+  correoConfirmado: boolean = false;
+
   updateName(e : Event) {
     const input = e.target as HTMLInputElement;
     this.email = input.value;
   }
-
     render() {
       return html`
       <div class="card">
@@ -210,11 +276,27 @@ export class CardComponent extends LitElement {
           </div>
         </div>
         <button class="button-apuntate">
-        Apúntate gratis
+          Apúntate gratis
         </button>
         
       
       </div>
+      ${ this.correoEnviado
+      ? html `<div class="correo-enviado">
+        <div>
+          <span>
+            <img class="aspa" src="../../public/aspa.png" alt="aspa">
+          </span>
+          <p class="mensaje-revisa">Revisa tu correo</p>
+          <p class="mensaje-correo">
+            Te hemos enviado un correo electrónico con un 
+            enlace para confirmar tu suscripción a este boletín. 
+            Por si acaso, revisa también tu carpeta de Spam
+          </p>
+        </div>
+        <button class="abrir-correo">Abrir correo <img class="img-link" src="../../public/external-link.png" alt="link"></button>
+      </div>`
+      :''}
     </div>
       `
     }
