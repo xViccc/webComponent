@@ -19,8 +19,10 @@ export class CardComponent extends LitElement {
     align-items: flex-end;
     background: #F2F0F0;
   }
+  .img{
+    width:100%;
+  }
   img {
-    width: 100%;
     height: 74px;
   }
 
@@ -76,6 +78,7 @@ export class CardComponent extends LitElement {
   }
 
   .button-apuntate {
+    width: 100%;
     display: flex;
     height: 48px;
     padding: 15px 24px;
@@ -89,9 +92,34 @@ export class CardComponent extends LitElement {
     border: none;
   }
 
-  @media(max-width: 500px) {
+  @media(min-width: 1040px) {
     .card {
-      background: blue;
+      position: relative;
+      align-items: baseline;
+      width: 640px;
+    }
+    .down{
+      width: 100%;
+      display:flex;
+      justify-content:space-between;
+    }
+    .description{
+      position:absolute;
+      top:11px;
+      right: 16px;
+      text-align:right;
+      width: 211px;
+      font-size:15px;
+    }
+
+    .img{
+      height:74px;
+      border-bottom: 1px solid #D2D2D2;
+    }
+    .button-apuntate{
+      width: 209px;
+    } .input{
+      width: 385.5px;
     }
   }
   
@@ -105,6 +133,7 @@ export class CardComponent extends LitElement {
     const input = e.target as HTMLInputElement;
     this.email = input.value;
   }
+  // <p class="descriptionDesktop">Recibe en tu buzón cada mañana el boletín de <b>Juanlu Sánchez,</b> con todas las claves de la actualidad</p>
 
     render() {
       return html`
@@ -112,22 +141,26 @@ export class CardComponent extends LitElement {
       <div class="img">
       <img src="aldia.png" alt="Al Dia">
       </div>
+      <div>
+        <p class="description">Recibe cada mañana en tu buzón el boletín de <b>Juanlu Sánchez,</b> con las claves de la actualidad</p>
+        <p class="insert">Inserta tu correo para recibirlo</p>
+      </div>
+      <div class="down">
         <div>
-          <p class="description">Recibe cada mañana en tu buzón el boletín de <b>Juanlu Sánchez,</b> con las claves de la actualidad</p>
-          <p class="insert">Inserta tu correo para recibirlo</p>
           <input class="input" @change=${this.updateName} placeholder="Tu email"></input>
+          <div class="conditions">
+            <input type="checkbox">
+              <label>
+              Acepto las condiciones de uso y privacidad
+              </label>
+            </input>
+          </div>
         </div>
-      <div class="conditions">
-        <input type="checkbox">
-          <label>
-          Acepto las condiciones de uso y privacidad
-          </label>
-        </input>
+        <button class="button-apuntate">
+        Apúntate gratis
+        </button>
       </div>
-      <button class="button-apuntate">
-      Apúntate gratis
-      </button>
-      </div>
+    </div>
       `
     }
 }
