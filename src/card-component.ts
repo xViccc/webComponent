@@ -1,6 +1,7 @@
 import { LitElement,css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
+
 @customElement('card-component')
 
 export class CardComponent extends LitElement {
@@ -9,6 +10,7 @@ export class CardComponent extends LitElement {
 
   * {
   box-sizing: border-box;
+  font-family: 'Encode Sans',sans-serif;
   }
 
   .card {
@@ -21,6 +23,8 @@ export class CardComponent extends LitElement {
   }
   .img{
     width:100%;
+    height:74px;
+    border-bottom: 1px solid #D2D2D2;
   }
   img {
     height: 74px;
@@ -35,7 +39,7 @@ export class CardComponent extends LitElement {
     font-style: normal;
     font-weight: 400;
     line-height: 20px;
-    margin: 0;    
+    margin: 9px 0 21px 0;    
   }
 
   .insert {
@@ -47,6 +51,7 @@ export class CardComponent extends LitElement {
     font-weight: 400;
     line-height: normal;
     text-transform: uppercase;
+    margin: 0 0 8px 0;
   }
 
   .input {
@@ -56,12 +61,14 @@ export class CardComponent extends LitElement {
     border-radius: 4px;
     border: 1px solid #D2D2D2;
     background: #FFF;
+    padding:0px;
   }
 
   .input::placeholder {
     color: #4A4A4A;
     leading-trim: both;
     text-edge: cap;
+    color:#4A4A4A;
     font-family: "Encode Sans";
     font-size: 16px;
     font-style: normal;
@@ -69,12 +76,14 @@ export class CardComponent extends LitElement {
     line-height: 16px; /* 100% */
     opacity: 0.2;
     width: 60.548px;
+    padding-left:15px
   }
 
   .conditions {
     display: flex;
     font-size: 12px;
     width:100%;
+    margin: 17px 0;
   }
 
   .button-apuntate {
@@ -90,6 +99,15 @@ export class CardComponent extends LitElement {
     background: #F3A742;
     box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.07);
     border: none;
+    font-weight: 600;
+  }
+  .down{
+    width: 100%;
+  }
+  .check{
+    margin-left: 0px;
+    margin-right: 7px;
+    border: 1px solid #D4D2D3;
   }
 
   @media(min-width: 1040px) {
@@ -108,18 +126,21 @@ export class CardComponent extends LitElement {
       top:11px;
       right: 16px;
       text-align:right;
-      width: 211px;
+      width: 230px;
       font-size:15px;
-    }
-
-    .img{
-      height:74px;
-      border-bottom: 1px solid #D2D2D2;
+      margin: 0;
     }
     .button-apuntate{
       width: 209px;
     } .input{
       width: 385.5px;
+    }
+    .conditions{
+      margin: 7px 0 3px 0;
+    }
+    .insert{
+      font-size:12px;
+      margin: 11px 0 8px 0;
     }
   }
   
@@ -149,7 +170,7 @@ export class CardComponent extends LitElement {
         <div>
           <input class="input" @change=${this.updateName} placeholder="Tu email"></input>
           <div class="conditions">
-            <input type="checkbox">
+            <input class="check" type="checkbox">
               <label>
               Acepto las condiciones de uso y privacidad
               </label>
