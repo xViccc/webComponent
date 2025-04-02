@@ -62,6 +62,7 @@ export class CardComponent extends LitElement {
     border: 1px solid #D2D2D2;
     background: #FFF;
     padding:0px;
+    padding-left:15px
   }
 
   .input::placeholder {
@@ -76,7 +77,7 @@ export class CardComponent extends LitElement {
     line-height: 16px; /* 100% */
     opacity: 0.2;
     width: 60.548px;
-    padding-left:15px
+    
   }
 
   .conditions {
