@@ -1,12 +1,43 @@
 import { LitElement,css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
+import '@material/web/checkbox/checkbox.js';
+import '@material/web/switch/switch.js';
 
 @customElement('card-component')
 
 export class CardComponent extends LitElement {
 
   static styles = css`
+
+  md-checkbox {
+    background-color: #FFF;
+    --md-checkbox-outline-width: 1px;
+    --md-checkbox-outline-color: #D4D2D3;
+    --md-checkbox-selected-container-color: #31862ee4;
+    --md-checkbox-selected-icon-color: #D4D2D3;
+    --md-checkbox-container-shape: 2px;
+    --md-checkbox-focus-outline-color:#D4D2D3;
+    --md-checkbox--hover-outline-color:#D4D2D3;
+    --md-checkbox-selected-focus-container-color: #31862ee4;
+    --md-checkbox-selected-focus-icon-color: #fff;
+    --md-checkbox-selected-hover-container-color: #266b24e3;
+    --md-checkbox-selected-hover-icon-color: ##D4D2D3;
+    --md-checkbox-selected-icon-color: #FFF;
+    --md-checkbox-hover-outline-color: #D4D2D3;
+    --md-checkbox-pressed-outline-color: #D4D2D3;
+    --md-checkbox-hover-outline-width: 1px;
+    --md-checkbox-focus-outline-width: 1px;
+    --md-checkbox-pressed-outline-width: 1px;
+    --md-checkbox-hover-state-layer-opacity:0;
+    --md-checkbox-focus-state-layer-opacity:0;
+    --md-checkbox-selected-hover-state-layer-opacity:0;
+    --md-checkbox-selected-focus-state-layer-opacity:0;
+    --md-checkbox-selected-pressed-state-layer-opacity:0;
+    --md-checkbox-pressed-state-layer-opacity:0;
+    --md-checkbox-selected-pressed-container-color:#266b24e3;
+    --md-checkbox-selected-hover-icon-color: #FFF;
+  }
 
   * {
   box-sizing: border-box;
@@ -147,7 +178,6 @@ export class CardComponent extends LitElement {
   
   `
 
-  
   @property()
   email: string = '';
 
@@ -155,7 +185,6 @@ export class CardComponent extends LitElement {
     const input = e.target as HTMLInputElement;
     this.email = input.value;
   }
-  // <p class="descriptionDesktop">Recibe en tu buzón cada mañana el boletín de <b>Juanlu Sánchez,</b> con todas las claves de la actualidad</p>
 
     render() {
       return html`
@@ -171,16 +200,18 @@ export class CardComponent extends LitElement {
         <div>
           <input class="input" @change=${this.updateName} placeholder="Tu email"></input>
           <div class="conditions">
-            <input class="check" type="checkbox">
-              <label>
-              Acepto las condiciones de uso y privacidad
-              </label>
-            </input>
+            <label>
+              <md-checkbox></md-checkbox>
+            Acepto las condiciones de uso y privacidad
+            </label>
+          
           </div>
         </div>
         <button class="button-apuntate">
         Apúntate gratis
         </button>
+        
+      
       </div>
     </div>
       `
