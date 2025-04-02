@@ -15,7 +15,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "publish": "npm publish --access public && npm version patch",
+    "clean-cache": "npm cache clean --force"
   },
   "dependencies": {
     "@material/web": "^2.3.0",

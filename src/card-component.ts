@@ -63,8 +63,6 @@ export class CardComponent extends LitElement {
 
   .description {
     color: #000;
-    leading-trim: both;
-    text-edge: cap;
     font-family: "Encode Sans";
     font-size: 15px;
     font-style: normal;
