@@ -113,9 +113,9 @@ export class CardComponent extends LitElement {
       <img src="aldia.png" alt="Al Dia">
       </div>
         <div>
-        <p class="description">Recibe cada mañana en tu buzón el boletín de <b>Juanlu Sánchez,</b> con las claves de la actualidad</p>
-        <p class="insert">Inserta tu correo para recibirlo</p>
-        <input class="input" @change=${this.updateName} placeholder="Tu email"></input>
+          <p class="description">Recibe cada mañana en tu buzón el boletín de <b>Juanlu Sánchez,</b> con las claves de la actualidad</p>
+          <p class="insert">Inserta tu correo para recibirlo</p>
+          <input class="input" @change=${this.updateName} placeholder="Tu email"></input>
         </div>
       <div class="conditions">
         <input type="checkbox">
