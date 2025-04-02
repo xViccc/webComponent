@@ -88,10 +88,14 @@ export class CardComponent extends LitElement {
     height: 50px;
     flex-shrink: 0;
     border-radius: 4px;
-    border: 1px solid #D2D2D2;
+    outline: 1px solid #D2D2D2;
     background: #FFF;
-    padding:0px;
-    padding-left:15px
+    padding-left:15px;
+    border: none;
+  }
+
+  .input:focus {
+    outline: 1px solid #5596e2;
   }
 
   .input::placeholder {
@@ -198,10 +202,10 @@ export class CardComponent extends LitElement {
         <div>
           <input class="input" @change=${this.updateName} placeholder="Tu email"></input>
           <div class="conditions">
-            <label>
-              <md-checkbox></md-checkbox>
+          <md-checkbox></md-checkbox>
+          <label>
             Acepto las condiciones de uso y privacidad
-            </label>
+          </label>
           
           </div>
         </div>
