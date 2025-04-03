@@ -16,7 +16,7 @@
     "dev": "vite",
     "build": "tsc && cp -r src/assets dist",
     "preview": "vite preview",
-    "publish": "npm publish --access public && npm version patch",
+    "publish": "npm version patch && npm publish --access public",
     "clean-cache": "npm cache clean --force"
   },
   "dependencies": {
