@@ -10,11 +10,11 @@
   "module": "dist/card-component.js",
   "types": "dist/card-component.d.ts",
   "files": [
-    "dist", "public"
+    "dist", "assets"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && cp -r public dist && vite build",
+    "build": "tsc && cp -r src/assets dist",
     "preview": "vite preview",
     "publish": "npm publish --access public && npm version patch",
     "clean-cache": "npm cache clean --force"

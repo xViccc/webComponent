@@ -4,6 +4,10 @@ import { customElement, property } from 'lit/decorators.js'
 import '@material/web/checkbox/checkbox.js';
 import '@material/web/switch/switch.js';
 
+import aldia from './assets/aldia.png';
+import aspa from './assets/aspa.png';
+import external from './assets/external-link.png';
+
 @customElement('card-component')
 
 export class CardComponent extends LitElement {
@@ -258,7 +262,7 @@ export class CardComponent extends LitElement {
       return html`
       <div class="card">
       <div class="img">
-      <img src="aldia.png" alt="Al Dia">
+      <img src=${aldia} alt="Al Dia">
       </div>
       <div>
         <p class="description">Recibe cada mañana en tu buzón el boletín de <b>Juanlu Sánchez,</b> con las claves de la actualidad</p>
@@ -285,7 +289,7 @@ export class CardComponent extends LitElement {
       ? html `<div class="correo-enviado">
         <div>
           <span>
-            <img class="aspa" src="../../public/aspa.png" alt="aspa">
+            <img class="aspa" src=${aspa} alt="aspa">
           </span>
           <p class="mensaje-revisa">Revisa tu correo</p>
           <p class="mensaje-correo">
@@ -294,7 +298,7 @@ export class CardComponent extends LitElement {
             Por si acaso, revisa también tu carpeta de Spam
           </p>
         </div>
-        <button class="abrir-correo">Abrir correo <img class="img-link" src="../../public/external-link.png" alt="link"></button>
+        <button class="abrir-correo">Abrir correo <img class="img-link" src=${external} alt="link"></button>
       </div>`
       :''}
     </div>
