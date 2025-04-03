@@ -1,11 +1,10 @@
-import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js'
+import {LitElement, html, css} from 'lit';
 
 import aldia from './assets/aldia.png';
 import aspa from './assets/aspa.png';
 import external from './assets/external-link.png';
 
-// import '@material/web/checkbox/checkbox.js';
-
+import '@material/web/checkbox/checkbox.js';
 
 class CardComponent extends LitElement {
   static styles = css`
@@ -104,8 +103,6 @@ button{
 
 .input::placeholder {
   color: #4A4A4A;
-  leading-trim: both;
-  text-edge: cap;
   color:#4A4A4A;
   font-family: "Encode Sans";
   font-size: 16px;
@@ -243,7 +240,7 @@ button{
   constructor() {
     super();
     this.email = '';
-    this.correoEnviado = false;
+    this.correoEnviado = true;
     this.correoConfirmado = false;
   }
 
@@ -265,6 +262,7 @@ button{
           <div>
             <input class="input" @input="${this.updateName}" placeholder="Tu email" />
             <div class="conditions">
+            <md-checkbox></md-checkbox>
               <label>Acepto las condiciones de uso y privacidad</label>
             </div>
           </div>
