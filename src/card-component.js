@@ -1,11 +1,11 @@
-import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
-
-import '@material/web/checkbox/checkbox.js';
-import '@material/web/switch/switch.js';
+import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js'
 
 import aldia from './assets/aldia.png';
 import aspa from './assets/aspa.png';
 import external from './assets/external-link.png';
+
+import '@material/web/all.js';
+import '@material/web/checkbox/checkbox.js';
 
 class CardComponent extends LitElement {
   static styles = css`
@@ -253,6 +253,20 @@ button{
 
   render() {
     return html`
+    <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+  </script>
+  <script type="module">
+    import '@material/web/all.js';
+    import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+
+    document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+  </script>
+  
       <div class="card">
         <div class="img">
           <img src="${aldia}" alt="Al Dia">
