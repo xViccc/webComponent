@@ -1,9 +1,5 @@
 import {LitElement, html, css} from 'lit';
 
-import aldia from './assets/aldia.png';
-import aspa from './assets/aspa.png';
-import external from './assets/external-link.png';
-
 import '@material/web/checkbox/checkbox.js';
 
 class CardComponent extends LitElement {
@@ -240,7 +236,7 @@ button{
   constructor() {
     super();
     this.email = '';
-    this.correoEnviado = true;
+    this.correoEnviado = false;
     this.correoConfirmado = false;
   }
 
@@ -252,7 +248,7 @@ button{
     return html`
       <div class="card">
         <div class="img">
-          <img src="${aldia}" alt="Al Dia">
+          <img src="aldia.png" alt="Al Dia">
         </div>
         <div>
           <p class="description">Recibe cada mañana en tu buzón el boletín de <b>Juanlu Sánchez,</b> con las claves de la actualidad</p>
@@ -272,7 +268,7 @@ button{
           ? html`<div class="correo-enviado">
               <div>
                 <span>
-                  <img class="aspa" src="${aspa}" alt="aspa" />
+                  <img class="aspa" src="Aspa.png" alt="aspa" />
                 </span>
                 <p class="mensaje-revisa">Revisa tu correo</p>
                 <p class="mensaje-correo">
@@ -280,7 +276,7 @@ button{
                   Por si acaso, revisa también tu carpeta de Spam
                 </p>
               </div>
-              <button class="abrir-correo">Abrir correo <img class="img-link" src="${external}" alt="link" /></button>
+              <button class="abrir-correo">Abrir correo <img class="img-link" src="external-link.png" alt="link" /></button>
             </div>`
           : ''}
       </div>
