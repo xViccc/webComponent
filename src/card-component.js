@@ -2,6 +2,10 @@ import {LitElement, html, css} from 'lit';
 
 import '@material/web/checkbox/checkbox.js';
 
+const imgAlDia = new URL('./assets/aldia.png', import.meta.url).href
+const imgAspa = new URL('./assets/Aspa.png', import.meta.url).href
+const imgExternal = new URL('./assets/external-link.png', import.meta.url).href
+
 class CardComponent extends LitElement {
   static styles = css`
     
@@ -236,7 +240,7 @@ button{
   constructor() {
     super();
     this.email = '';
-    this.correoEnviado = false;
+    this.correoEnviado = true;
     this.correoConfirmado = false;
   }
 
@@ -248,7 +252,7 @@ button{
     return html`
       <div class="card">
         <div class="img">
-          <img src="aldia.png" alt="Al Dia">
+          <img src="${imgAlDia}" alt="Al Dia">
         </div>
         <div>
           <p class="description">Recibe cada mañana en tu buzón el boletín de <b>Juanlu Sánchez,</b> con las claves de la actualidad</p>
@@ -268,7 +272,7 @@ button{
           ? html`<div class="correo-enviado">
               <div>
                 <span>
-                  <img class="aspa" src="Aspa.png" alt="aspa" />
+                  <img class="aspa" src="${imgAspa}" alt="aspa" />
                 </span>
                 <p class="mensaje-revisa">Revisa tu correo</p>
                 <p class="mensaje-correo">
@@ -276,7 +280,7 @@ button{
                   Por si acaso, revisa también tu carpeta de Spam
                 </p>
               </div>
-              <button class="abrir-correo">Abrir correo <img class="img-link" src="external-link.png" alt="link" /></button>
+              <button class="abrir-correo">Abrir correo <img class="img-link" src="${imgExternal}" alt="link" /></button>
             </div>`
           : ''}
       </div>
