@@ -317,7 +317,7 @@ button{
           ? html`<div class="correo-enviado">
               <div>
                 <span>
-                  <img class="aspa" src="Aspa.p" alt="aspa" />
+                  <img class="aspa" src="${imgAspa}" alt="aspa" />
                 </span>
                 <p class="mensaje-gracias">¡Gracias por suscribirte!</p>
                 <p class="mensaje-explora">
