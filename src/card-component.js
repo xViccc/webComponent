@@ -71,7 +71,7 @@ button{
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-  margin: 9px 0 21px 0;    
+  margin: 9px 0 44px 0;    
 }
 
 .insert {
@@ -140,9 +140,7 @@ button{
   width: 100%;
 }
 .check{
-  margin-left: 0px;
   margin-right: 7px;
-  border: 1px solid #D4D2D3;
 }
 
 /* ------------------ */
@@ -194,6 +192,19 @@ button{
   right:4px;
   cursor:pointer;
 }
+.mensaje-gracias{
+  font-weight:700;
+  margin:0 0 10px 0;
+}
+.mensaje-explora{
+  margin:0 0 13px 0;
+  line-height: 20px;
+}
+.mensaje-explora a{
+  color: #4A90E2;
+  text-decoration: none;
+  font-weight: 600;
+}
 
 @media(min-width: 1040px) {
   .card {
@@ -218,7 +229,7 @@ button{
     top:11px;
     right: 16px;
     text-align:right;
-    width: 230px;
+    width: 280px;
     font-size:15px;
     margin: 0;
   }
@@ -228,11 +239,30 @@ button{
     width: 385.5px;
   }
   .conditions{
-    margin: 7px 0 3px 0;
+    margin: 13px 0 3px 0;
   }
   .insert{
     font-size:12px;
-    margin: 11px 0 8px 0;
+    margin: 15px 0 12px 0;
+  }
+  .correo-enviado{
+    height:112px;
+    width :608px;
+    display:flex;
+    flex-direction:row;
+    align-items:end;
+    text-align:left;
+    padding: 15px 24px 15px 20px;
+  }
+  .mensaje-correo{
+    width:347px;
+  }
+  .abrir-correo{
+    width: 182px;
+    margin-right:15px;
+  }
+  .mensaje-revisa{
+    margin: 0 0 5px 0;
   }
 }
   `;
@@ -240,7 +270,7 @@ button{
   constructor() {
     super();
     this.email = '';
-    this.correoEnviado = true;
+    this.correoEnviado = false;
     this.correoConfirmado = false;
   }
 
@@ -255,14 +285,14 @@ button{
           <img src="${imgAlDia}" alt="Al Dia">
         </div>
         <div>
-          <p class="description">Recibe cada mañana en tu buzón el boletín de <b>Juanlu Sánchez,</b> con las claves de la actualidad</p>
+          <p class="description">Con <b>Juanlu Sánchez,</b> el boletín que te trae las claves de la actualidad sin ruido</p>
           <p class="insert">Inserta tu correo para recibirlo</p>
         </div>
         <div class="down">
           <div>
             <input class="input" @input="${this.updateName}" placeholder="Tu email" />
             <div class="conditions">
-            <md-checkbox></md-checkbox>
+            <md-checkbox class="check"></md-checkbox>
               <label>Acepto las condiciones de uso y privacidad</label>
             </div>
           </div>
@@ -281,6 +311,32 @@ button{
                 </p>
               </div>
               <button class="abrir-correo">Abrir correo <img class="img-link" src="${imgExternal}" alt="link" /></button>
+            </div>`
+          : ''}
+        ${this.correoConfirmado
+          ? html`<div class="correo-enviado">
+              <div>
+                <span>
+                  <img class="aspa" src="Aspa.p" alt="aspa" />
+                </span>
+                <p class="mensaje-gracias">¡Gracias por suscribirte!</p>
+                <p class="mensaje-explora">
+                Explora nuestra sección de <a href=''> boletines </a> y accede a las opiniones más relevantes sobre los temas de actualidad que te interesan
+                </p>
+              </div>
+            </div>`
+          : ''}
+        ${this.correoConfirmado
+          ? html`<div class="correo-enviado">
+              <div>
+                <span>
+                  <img class="aspa" src="Aspa.png" alt="aspa" />
+                </span>
+                <p class="mensaje-gracias">¡Gracias por suscribirte!</p>
+                <p class="mensaje-explora">
+                Explora nuestra sección de <a href=''> boletines </a> y accede a las opiniones más relevantes sobre los temas de actualidad que te interesan
+                </p>
+              </div>
             </div>`
           : ''}
       </div>
