@@ -52,6 +52,7 @@ font-family: 'Encode Sans',sans-serif;
   flex-direction: column;
   align-items: flex-end;
   background: #F2F0F0;
+  text-align: start;
 }
 .img{
   width:100%;
@@ -210,8 +211,9 @@ button{
   .card {
     position: relative;
     align-items: baseline;
-    width: 640px;
+    width: 100%;
     height:249px;
+    max-width: 640px;
   }
   .img{
     height:86px;
@@ -222,8 +224,13 @@ button{
   .down{
     width: 100%;
     display:flex;
-    justify-content:space-between;
+    gap: 12px;
   }
+
+  .left-group {
+    width: 100%;
+  }
+
   .description{
     position:absolute;
     top:11px;
@@ -234,9 +241,11 @@ button{
     margin: 0;
   }
   .button-apuntate{
+    min-width: 209px;
     width: 209px;
-  } .input{
-    width: 385.5px;
+  } 
+  .input {
+    width: 100%;
   }
   .conditions{
     margin: 13px 0 3px 0;
@@ -289,7 +298,7 @@ button{
           <p class="insert">Inserta tu correo para recibirlo</p>
         </div>
         <div class="down">
-          <div>
+          <div class="left-group">
             <input class="input" @input="${this.updateName}" placeholder="Tu email" />
             <div class="conditions">
             <md-checkbox class="check"></md-checkbox>
